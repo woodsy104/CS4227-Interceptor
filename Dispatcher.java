@@ -1,9 +1,5 @@
-public class Dispatcher {
-    public void registerInterceptor(){
-        //To add interceptors
-    }
-
-    public void removeInterceptor(){
-        //To remove interceptors
-    }
+public interface Dispatcher {
+    public void registerInterceptor(Interceptor x);
+    public void removeInterceptor(Interceptor x);
+    public void notifyInterceptors(ContextObj contextObj);
 }
