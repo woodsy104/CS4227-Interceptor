@@ -3,7 +3,7 @@ public class ForecastDisplay implements Observer, DisplayElement {
     private float lastPressure;
     private WeatherData weatherData;
 
-    public ForecastDisplay(WeatherData weatherData) {
+    public ForecastDisplay(ContextObj contextObj, WeatherData weatherData) {
         this.weatherData = weatherData;
         weatherData.registerObserver(this);
     }
