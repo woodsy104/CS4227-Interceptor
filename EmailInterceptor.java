@@ -5,9 +5,8 @@ public class EmailInterceptor implements Interceptor{
         this.emailAddress = emailAddress;
     }
 
-    public void intercept(ContextObj contextObj, WeatherData weatherData, float temperature, float humidity, float pressure){
-        String emailText = "Please find the current weather conditions here: " + temperature
-        + "C degrees " + humidity + " % humidity " + pressure + " % pressure";
+    public void intercept(ContextObject obj){
+        String emailText = obj.getUpdate();
 
         String emailAddress = this.emailAddress;
 
