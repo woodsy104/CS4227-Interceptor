@@ -53,22 +53,5 @@ public class WeatherData implements SetMeasurements, GetMeasurements, Subject {
         return pressure;
     }
 
-    // public void registerInterceptor(Interceptor x){
-    //     interceptors.add(x);
-    // }
-
-    // public void removeInterceptor(Interceptor x){
-    //     int i = interceptors.indexOf(x);
-    //     if (i >= 0) {
-    //     interceptors.remove(i);
-    //     }
-    // }
-
-    // public void notifyInterceptors(){
-    //     for(Interceptor interceptor : interceptors){
-    //         interceptor.intercept(this, temperature, humidity, pressure);
-    //     }
-    // }
-   
 }
 

@@ -13,9 +13,11 @@ public class WeatherStation{
         
         CurrentConditionsDisplay currentDisplay = new CurrentConditionsDisplay(weatherData);
 
-        weatherData.setMeasurements(45, 4, 21.2f);
+        weatherData.setMeasurements(45, 30, 21.2f);
         dispatcher.dispatch(obj);
         
+        weatherData.setMeasurements(20, 7, 10.4f);
+        dispatcher.dispatch(obj);
         }
     }
     
