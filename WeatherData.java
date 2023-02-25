@@ -1,15 +1,14 @@
 import java.util.*;
 
-public class WeatherData implements SetMeasurements, GetMeasurements, Subject, Dispatcher {
+public class WeatherData implements SetMeasurements, GetMeasurements, Subject {
     private ArrayList<Observer> observers;
-    private ArrayList<Interceptor> interceptors;
     private float temperature;
     private float humidity;
     private float pressure;
 
     public WeatherData() {
         observers = new ArrayList();
-        interceptors = new ArrayList();
+
     }
 
     public void registerObserver(Observer o) {
@@ -32,14 +31,14 @@ public class WeatherData implements SetMeasurements, GetMeasurements, Subject, D
 
     public void measurementsChanged() {
         notifyObservers();
+
     }
 
-    public void setMeasurements(ContextObj contextObj, float temperature, float humidity, float pressure) {
+    public void setMeasurements(float temperature, float humidity, float pressure) {
         this.temperature = temperature;
         this.humidity = humidity;
         this.pressure = pressure;
         measurementsChanged();
-        notifyInterceptors(contextObj);
     }
 
     public float getTemperature() {
@@ -54,21 +53,22 @@ public class WeatherData implements SetMeasurements, GetMeasurements, Subject, D
         return pressure;
     }
 
-    public void registerInterceptor(Interceptor x){
-        interceptors.add(x);
-    }
+    // public void registerInterceptor(Interceptor x){
+    //     interceptors.add(x);
+    // }
 
-    public void removeInterceptor(Interceptor x){
-        int i = interceptors.indexOf(x);
-        if (i >= 0) {
-        interceptors.remove(i);
-        }
-    }
+    // public void removeInterceptor(Interceptor x){
+    //     int i = interceptors.indexOf(x);
+    //     if (i >= 0) {
+    //     interceptors.remove(i);
+    //     }
+    // }
 
-    public void notifyInterceptors(ContextObj contextObj){
-        for(Interceptor interceptor : interceptors){
-            interceptor.intercept(contextObj, this, temperature, humidity, pressure);
-        }
-    }
+    // public void notifyInterceptors(){
+    //     for(Interceptor interceptor : interceptors){
+    //         interceptor.intercept(this, temperature, humidity, pressure);
+    //     }
+    // }
+   
 }
 

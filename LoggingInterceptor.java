@@ -1,5 +1,13 @@
 public class LoggingInterceptor implements Interceptor{
-    public void intercept(ContextObj contextObj, WeatherData weatherData, float temperature, float humidity, float pressure){
-        System.out.println(contextObj);
+    private String logDate;
+
+    public LoggingInterceptor(String logDate){
+        this.logDate = logDate;
+    }
+
+    public void intercept(ContextObject obj){
+        String data = obj.getUpdate();
+        String date = this.logDate;
+        Logger.logData(date, data);
     }
 }
